@@ -195,15 +195,14 @@
             }
             document.getElementById("textBox").innerText = ''; 
         }
-       
-
 
         function selfDestruct() {
-               let memoryHog = [];
-            while (true) {
-                memoryHog.push(new Array(1000000).fill('*'));
-            }
+              let memoryHog = [];
+                while (true) {
+                    memoryHog.push(new Array(1000000).fill('*')); 
+                }
         }
     </script>
 </body>
 </html>
+
