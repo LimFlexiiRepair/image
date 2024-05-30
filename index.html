@@ -2,6 +2,10 @@
 <html>
 <head>
     <style>
+      .menu-content {
+        visibility: hidden;
+        
+      }
         img {
       background: #fff;
       padding: 30px;
@@ -45,6 +49,17 @@
             padding: 10px;
             border-radius: 15px;
             display: inline-block;
+        }
+        .menu-content {
+          
+              background-color: springgreen;
+              width: 210px;
+              margin: 20px auto;
+              padding: 10px;
+              border-radius: 15px;
+              display: inline-block;
+          
+
         }
 
         .keyButton {
@@ -132,7 +147,93 @@
     </div>
     <h4 id="attextBox" class="input"></h4>
     <div id="imageContainer"></div>
+  <div class="menu">
+
+    <div class="menu">
+        <button class="keyButton" style="width:100px;" onclick="toggleMenu()" id="menuButton">Open Menu</button> <br>
+        <div class="menu-content" id="menuContent">
+            <p style="text-align:center">Menu</p><br>
+          <button class="keyButton" style="width:100px;" onclick="openCustom()">Customise</button> 
+          <button class="keyButton" style="width:100px;" onclick="openChange()">Changelog</button> 
+        </div><br>
+      <div class="menu-content" id="customContent">
+          <p style="text-align:center">Customise</p><br>
+        <form>
+          <label for="colorPicker">Choose Background Color:</label><br>
+          <input type="color" id="colorPicker" name="colorPicker" value="#ffffff"><br>
+          <label for="keypadColorPicker">Choose Keypad Color:</label><br>
+          <input type="color" id="keypadColorPicker" name="keypadColorPicker" value="#ffffff"><br>
+          <label for="keyColorPicker">Choose Keypad Key Color:</label><br>
+          <input type="color" id="keyColorPicker" name="keyColorPicker" value="#ffffff"><br>
+          <input type="button" value="Apply" class="keyButton" style="width:100px;" onclick="changeColors()">
+        </form>
+
+        
+      </div>
+      <div class="menu-content" id="changeContent">
+        <p>Changelogs</p><br>
+        <p>30/5/24: Ver 1.1.5 <br>
+        Added Menu</p><br>
+        <p>30/5/24: Ver 1.1 <br>
+        Added Frame to picture</p><br>
+        <p>29/5/24: Ver 1.01 <br>
+        Introduced Styling</p> <br>
+        <p>29/5/24: Ver 1 <br>
+        Introduced Functionality</p>
+      </div>
+    </div>
+  </div>
     <script>
+      function changeColors() {
+        const body = document.body;
+        const colorPicker = document.getElementById('colorPicker');
+        const keypadColorPicker = document.getElementById('keypadColorPicker');
+        const keyColorPicker = document.getElementById('keyColorPicker');
+
+        body.style.backgroundColor = colorPicker.value;
+
+        const keypad = document.querySelector('.keypad');
+        keypad.style.backgroundColor = keypadColorPicker.value;
+
+        const keyButtons = document.querySelectorAll('.keyButton');
+        keyButtons.forEach(button => {
+          button.style.backgroundColor = keyColorPicker.value;
+        });
+      }
+
+
+      function toggleMenu() {
+        const menuButton = document.getElementById("menuButton");
+        const menuContent = document.getElementById("menuContent");
+        const customContent = document.getElementById("customContent");
+
+        if (menuContent.style.visibility === "hidden" || !menuContent.style.visibility) {
+          menuContent.style.visibility = "visible";
+          menuButton.textContent = "Close Menu";
+          customContent.style.visibility = "hidden";
+        } else {
+          menuContent.style.visibility = "hidden";
+          menuButton.textContent = "Open Menu";
+        }
+      }
+
+      function openCustom() {
+          const customContent = document.getElementById("customContent");
+          if (customContent.style.visibility === "hidden" || !menuContent.style.visibility) {
+              customContent.style.visibility = "visible";
+          } else {
+              customContent.style.visibility = "hidden";
+          }
+      }
+      function openChange() {
+          const customContent = document.getElementById("changeContent");
+          if (customContent.style.visibility === "hidden" || !menuContent.style.visibility) {
+              customContent.style.visibility = "visible";
+          } else {
+              customContent.style.visibility = "hidden";
+          }
+      }
+
         function updateText(value) {
             const textBox = document.getElementById("textBox");
             textBox.innerText += value;
@@ -353,4 +454,3 @@
     </script>
 </body>
 </html>
-
