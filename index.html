@@ -255,11 +255,15 @@
 
         function setPassword(password) {
             if (password.length >= 4) {
+              if (password.length <= 10) {
                 localStorage.setItem("attempts", 3);
                 localStorage.setItem("password", password);
                 alert("Password saved successfully!");
                 document.getElementById('protectedImage').style.visibility = 'hidden';
                 document.getElementById("imageUrl").value = ''; 
+              } else {
+                alert("Password must be less than 10 characters long.");
+              }
             } else {
                 alert("Password must be at least 4 characters long.");
             }
@@ -315,3 +319,4 @@
     </script>
 </body>
 </html>
+
