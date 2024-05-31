@@ -2,179 +2,215 @@
 <html>
 <head>
     <style>
-        .menu-content, .custom-content, .change-content {
-            display: none;
-        }
+      body {
+          background-color: mediumaquamarine;
+          font-family: Arial, sans-serif;
+          text-align: center;
+          padding: 20px;
+      }
 
-        img {
-            background: #fff;
-            padding: 30px;
-            border-style: solid;
-            border-width: 15px;
-            border-top-color: lighten(#000, 20%);
-            border-right-color: lighten(#000, 0%);
-            border-bottom-color: lighten(#000, 20%);
-            border-left-color: lighten(#000, 0%);
-            box-shadow: 2px 2px 4px rgba(0,0,0,.6);
-        }
-        body {
-            background-color: mediumaquamarine;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
+      h1 {
+          color: white;
+          font-size: 24px;
+          border: 2px solid white;
+          padding: 10px;
+          border-radius: 10px;
+          display: inline-block;
+      }
 
-        h1 {
-            color: white;
-            font-size: 24px;
-        }
+      .input {
+          width: calc(100% - 24px);
+          max-width: 300px;
+          padding: 8px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 2px solid #ccc;
+          border-radius: 5px;
+          box-sizing: border-box;
+          background-color: #fff;
+          font-size: 16px;
+      }
 
-        .input {
-            width: calc(100% - 24px);
-            max-width: 300px;
-            padding: 8px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            background-color: #fff;
-            font-size: 16px;
-        }
+      .keypad {
+          background-color: springgreen;
+          width: 210px;
+          margin: 20px auto;
+          padding: 10px;
+          border-radius: 15px;
+          border: 2px solid #ccc;
+          display: inline-block;
+      }
 
-        .keypad {
-            background-color: springgreen;
-            width: 210px;
-            margin: 20px auto;
-            padding: 10px;
-            border-radius: 15px;
-            display: inline-block;
-        }
+      .keyButton {
+          width: 40px;
+          height: 40px;
+          margin: 7px;
+          background-color: lightgreen;
+          border: 2px solid #ccc;
+          border-radius: 10px;
+          transition: background-color 0.3s, box-shadow 0.3s;
+          font-size: 16px;
+          cursor: pointer;
+      }
 
-        .menu-content, .custom-content, .change-content {
-            background-color: springgreen;
-            width: 210px;
-            margin: 20px auto;
-            padding: 10px;
-            border-radius: 15px;
-            display: none;
-        }
+      .keyButton:hover {
+          background-color: green;
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+      }
 
-        .keyButton {
-            width: 40px;
-            height: 40px;
-            margin: 7px;
-            background-color: lightgreen;
-            border: none;
-            border-radius: 10px;
-            transition: background-color 0.3s, box-shadow 0.3s;
-            font-size: 16px;
-            cursor: pointer;
-        }
+      .keyButton:active {
+          background-color: #3e8e41;
+          box-shadow: 0 5px #666;
+          transform: translateY(4px);
+      }
 
-        .keyButton:hover {
-            background-color: green;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-        }
+      #submit {
+          width: 80px;
+          height: 40px;
+          background-color: deepskyblue;
+          color: white;
+          border: 2px solid #ccc;
+          border-radius: 5px;
+          font-size: 16px;
+          cursor: pointer;
+          margin-top: 10px;
+      }
 
-        .keyButton:active {
-            background-color: #3e8e41;
-            box-shadow: 0 5px #666;
-            transform: translateY(4px);
-        }
+      #submit:hover {
+          background-color: dodgerblue;
+      }
 
-        #submit {
-            width: 80px;
-            height: 40px;
-            background-color: deepskyblue;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+      #textBox, #attextBox {
+          background-color: grey;
+          color: white;
+          text-align: center;
+          height: 30px;
+          margin-bottom: 10px;
+          padding: 5px;
+          border: 2px solid #ccc;
+          border-radius: 5px;
+          width: 100%;
+          max-width: 300px;
+          display: inline-block;
+      }
 
-        #submit:hover {
-            background-color: dodgerblue;
-        }
+      img {
+          background: #fff;
+          padding: 30px;
+          border-style: solid;
+          border-width: 15px;
+          border-top-color: lighten(#000, 20%);
+          border-right-color: lighten(#000, 0%);
+          border-bottom-color: lighten(#000, 20%);
+          border-left-color: lighten(#000, 0%);
+          box-shadow: 2px 2px 4px rgba(0,0,0,.6);
+          margin-top: 20px;
+          max-width: 100%;
+          height: auto;
+      }
 
-        #textBox, #attextBox {
-            background-color: grey;
-            color: white;
-            text-align: center;
-            height: 30px;
-            margin-bottom: 10px;
-            padding: 5px;
-            border-radius: 5px;
-        }
+      .menu {
+          margin-top: 20px;
+      }
 
-        img {
-            margin-top: 20px;
-            max-width: 100%;
-            height: auto;
-        }
+      .menu-content, .custom-content, .change-content {
+          background-color: springgreen;
+          width: 210px;
+          margin: 20px auto;
+          padding: 10px;
+          border-radius: 15px;
+          border: 2px solid #ccc;
+          display: none;
+      }
 
-        form {
-            margin: 20px 0;
-        }
+      .menu-content p, .custom-content p, .change-content p {
+          text-align: center;
+          margin: 10px 0;
+      }
+
+      .menu-content button, .custom-content input[type="color"], .change-content p {
+          width: 100px;
+          margin: 5px auto;
+          display: block;
+      }
+
+      .custom-content form {
+          text-align: left;
+          display: inline-block;
+      }
+
+      a, p {
+          color: white;
+          text-decoration: none;
+          border: 2px solid white;
+          padding: 5px;
+          border-radius: 5px;
+          display: inline-block;
+          margin: 10px 0;
+      }
+
+      a:hover, p:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+      }
 
     </style>
 </head>
 <body>
-    <h1>Programmable Super-Secret Password Protected Image Safe</h1>
-    <a href="https://en.wikipedia.org/wiki/Safe"><p>Safes</p></a>
-    <p>Protect your images using our super secret image safe(Patent Pending) that revolutionises safety. Instructions: paste the url of the image in the box below, and press submit. then simply set the password and your set!</p>
-    <form id="imageForm">
-        <input type="text" id="imageUrl" placeholder="image url" class="input">
-        <input type="submit" value="Submit" id="submit" class="keyButton">
-    </form>
-    <h4 id="textBox" class="input"></h4>
-    <div class="keypad">
-        <button class="keyButton" onclick="updateText('1')">1</button>
-        <button class="keyButton" onclick="updateText('2')">2</button>
-        <button class="keyButton" onclick="updateText('3')">3</button><br>
-        <button class="keyButton" onclick="updateText('4')">4</button>
-        <button class="keyButton" onclick="updateText('5')">5</button>
-        <button class="keyButton" onclick="updateText('6')">6</button><br>
-        <button class="keyButton" onclick="updateText('7')">7</button>
-        <button class="keyButton" onclick="updateText('8')">8</button>
-        <button class="keyButton" onclick="updateText('9')">9</button><br>
-        <button class="keyButton" onclick="updateText('0')">0</button>
-        <button id="passwordButton" onclick="confirmPassword()" class="keyButton">Set</button>
-        <button id="setButton" onclick="checkPassword()" class="keyButton">Go</button>
-    </div>
-    <h4 id="attextBox" class="input"></h4>
-    <div id="imageContainer"></div>
-    <div class="menu">
-        <button class="keyButton" style="width:100px;" onclick="toggleMenu()" id="menuButton">Open Menu</button><br>
-        <div class="menu-content" id="menuContent">
-            <p style="text-align:center">Menu</p><br>
-            <button class="keyButton" style="width:100px;" onclick="openCustom()">Customise</button>
-            <button class="keyButton" style="width:100px;" onclick="openChange()">Changelog</button>
-         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D"> <button class="keyButton" style="width:100px;">Admin</button> </a>
-        </div><br>
-        <div class="custom-content" id="customContent">
-            <p style="text-align:center">Customise</p><br>
-            <form>
-                <label for="colorPicker">Choose Background Color:</label><br>
-                <input type="color" id="colorPicker" name="colorPicker" value="#ffffff"><br>
-                <label for="keypadColorPicker">Choose Keypad Color:</label><br>
-                <input type="color" id="keypadColorPicker" name="keypadColorPicker" value="#ffffff"><br>
-                <label for="keyColorPicker">Choose Keypad Key Color:</label><br>
-                <input type="color" id="keyColorPicker" name="keyColorPicker" value="#ffffff"><br>
-                <input type="button" value="Apply" class="keyButton" style="width:100px;" onclick="changeColors()">
-            </form>
-        </div>
-        <div class="change-content" id="changeContent">
-            <p>Changelogs</p><br>
-            <p>30/5/24: Ver 1.1.7 <br> Made Menu Ui Better</p><br>
-            <p>30/5/24: Ver 1.1.5 <br> Added Menu</p><br>
-            <p>30/5/24: Ver 1.1 <br> Added Frame to picture</p><br>
-            <p>29/5/24: Ver 1.01 <br> Introduced Styling</p> <br>
-            <p>29/5/24: Ver 1 <br> Introduced Functionality</p>
-        </div>
-    </div>
-    <p>Made by Lim Zhi Chen for the Sentinel Programme 2024 June</p>
+  <h1>Programmable Super-Secret Password Protected Image Safe</h1><br>
+  <a href="https://en.wikipedia.org/wiki/Safe"><p>Safes</p></a>
+  <p>Protect your images using our super secret image safe (Patent Pending) that revolutionizes safety. Instructions: paste the URL of the image in the box below, and press submit. Then simply set the password and you're set!</p>
+  <form id="imageForm">
+      <input type="text" id="imageUrl" placeholder="Image URL" class="input">
+      <input type="submit" value="Submit" id="submit" class="keyButton">
+  </form>
+  <h4 id="textBox" class="input"></h4>
+  <div class="keypad">
+      <button class="keyButton" onclick="updateText('1')">1</button>
+      <button class="keyButton" onclick="updateText('2')">2</button>
+      <button class="keyButton" onclick="updateText('3')">3</button><br>
+      <button class="keyButton" onclick="updateText('4')">4</button>
+      <button class="keyButton" onclick="updateText('5')">5</button>
+      <button class="keyButton" onclick="updateText('6')">6</button><br>
+      <button class="keyButton" onclick="updateText('7')">7</button>
+      <button class="keyButton" onclick="updateText('8')">8</button>
+      <button class="keyButton" onclick="updateText('9')">9</button><br>
+      <button class="keyButton" onclick="updateText('0')">0</button>
+      <button id="passwordButton" onclick="confirmPassword()" class="keyButton">Set</button>
+      <button id="setButton" onclick="checkPassword()" class="keyButton">Go</button>
+  </div>
+  <h4 id="attextBox" class="input"></h4>
+  <div id="imageContainer"></div>
+  <div class="menu">
+      <button class="keyButton" style="width:100px;" onclick="toggleMenu()" id="menuButton">Open Menu</button><br>
+      <div class="menu-content" id="menuContent">
+          <p>Menu</p><br>
+          <button class="keyButton" style="width:100px;" onclick="openCustom()">Customise</button>
+          <button class="keyButton" style="width:100px;" onclick="openChange()">Changelog</button>
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D"><button class="keyButton" style="width:100px;">Admin</button></a>
+      </div><br>
+      <div class="custom-content" id="customContent">
+          <p>Customise</p><br>
+          <form>
+              <label for="colorPicker">Choose Background Color:</label><br>
+              <input type="color" id="colorPicker" name="colorPicker" value="#ffffff"><br>
+              <label for="keypadColorPicker">Choose Keypad Color:</label><br>
+              <input type="color" id="keypadColorPicker" name="keypadColorPicker" value="#ffffff"><br>
+              <label for="keyColorPicker">Choose Keypad Key Color:</label><br>
+              <input type="color" id="keyColorPicker" name="keyColorPicker" value="#ffffff"><br>
+              <input type="button" value="Apply" class="keyButton" style="width:100px;" onclick="changeColors()">
+          </form>
+      </div>
+      <div class="change-content" id="changeContent">
+          <p>Changelogs</p><br>
+          <p>30/5/24: Ver 1.1.7 <br> Made Menu UI Better</p><br>
+          <p>30/5/24: Ver 1.1.5 <br> Added Menu</p><br>
+          <p>30/5/24: Ver 1.1 <br> Added Frame to Picture</p><br>
+          <p>29/5/24: Ver 1.01 <br> Introduced Styling</p> <br>
+          <p>29/5/24: Ver 1 <br> Introduced Functionality</p>
+      </div>
+  </div>
+  <p>Made by Lim Zhi Chen for the Sentinel Programme 2024 June</p>
+
     <script>
         function changeColors() {
             const body = document.body;
